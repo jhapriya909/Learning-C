@@ -1,18 +1,23 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    long long t1 = 0, t2 = 1, nextTerm;
+    int num, original, reversed = 0, remainder;
 
-    printf("Enter the number of terms: ");
-    scanf("%d", &n);
+    printf("Enter an integer: ");
+    scanf("%d", &num);
 
-    printf("Fibonacci Series: ");
-    for (i = 1; i <= n; ++i) {
-        printf("%lld ", t1);
-        nextTerm = t1 + t2;
-        t1 = t2;
-        t2 = nextTerm;
+    original = num;
+    // Reverse the number
+    while (num != 0) {
+        remainder = num % 10;
+        reversed = reversed * 10 + remainder;
+        num /= 10;
     }
+
+    if (original == reversed)
+        printf("%d is a palindrome.\n", original);
+    else
+        printf("%d is not a palindrome.\n", original);
+
     return 0;
 }
